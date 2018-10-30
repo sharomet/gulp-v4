@@ -1,6 +1,7 @@
 const del 			= require('del');
 const gulp 			= require('gulp');
 const sass 			= require('gulp-sass');
+const rigger 		= require('gulp-rigger');
 const concat 		= require('gulp-concat');
 const uglify 		= require('gulp-uglify');
 const cleanCSS 		= require('gulp-clean-css');
@@ -39,27 +40,36 @@ function scripts() {
 			   .pipe(browserSync.stream());
 }
 
+function html() {
+	return gulp.src('./src/html/*.html')
+			   .pipe(rigger())
+			   .pipe(gulp.dest('./build/'))
+			   .pipe(browserSync.stream());
+}
+
 function watch() {
 	browserSync.init({
         server: {
-            baseDir: './'
+            baseDir: './build/'
         },
         // tunnel: true
     });
 
+	gulp.watch('./src/html/**/*.html', html);
 	gulp.watch('./src/scss/**/*.scss', styles);
 	gulp.watch('./src/js/**/*.js', scripts);
-	gulp.watch('./**/*.html', browserSync.reload);
+	//gulp.watch('./**/*.html', browserSync.reload);
 }
 
 function clean() {
 	return del(['build/*']);
 }
 
+gulp.task('html', html);
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
 gulp.task('watch', watch);
 gulp.task('build', gulp.series(clean,
-					   		gulp.parallel(styles, scripts)
+					   		gulp.parallel(styles, scripts, html)
 					   	));
 gulp.task('dev', gulp.series('build', 'watch'));
