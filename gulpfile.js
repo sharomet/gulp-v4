@@ -12,7 +12,13 @@ const jsFiles = [
 	'./src/js/jquery-3.3.1.slim.min.js',
 	'./src/js/popper.min.js',
 	'./src/js/bootstrap.min.js',
+	'./src/js/jquery-mobile-mega-menu-min.js',
 	'./src/js/scripts.js',
+];
+
+const files = [
+	'./src/img/*',
+	'./src/webfonts/*',
 ];
 
 function styles() {
@@ -58,18 +64,25 @@ function watch() {
 	gulp.watch('./src/html/**/*.html', html);
 	gulp.watch('./src/scss/**/*.scss', styles);
 	gulp.watch('./src/js/**/*.js', scripts);
-	//gulp.watch('./**/*.html', browserSync.reload);
 }
 
 function clean() {
 	return del(['build/*']);
 }
 
+function movieFiles() {
+	gulp.src('./src/webfonts/**/*')
+		.pipe(gulp.dest('./build/webfonts'));
+	return gulp.src('./src/img/**/*')
+			   .pipe(gulp.dest('./build/img'));
+}
+
+gulp.task('movieFiles', movieFiles);
 gulp.task('html', html);
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
 gulp.task('watch', watch);
 gulp.task('build', gulp.series(clean,
-					   		gulp.parallel(styles, scripts, html)
+					   		gulp.parallel(styles, scripts, html, movieFiles)
 					   	));
 gulp.task('dev', gulp.series('build', 'watch'));
