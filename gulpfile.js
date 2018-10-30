@@ -7,14 +7,11 @@ const cleanCSS 		= require('gulp-clean-css');
 const autoprefixer 	= require('gulp-autoprefixer');
 const browserSync 	= require('browser-sync').create();
 
-const cssFiles = [
-	'./src/css/styles.css',
-	'./src/css/overide.css',
-];
-
 const jsFiles = [
-	'./src/js/main.js',
-	'./src/js/overide.js',
+	'./src/js/jquery-3.3.1.slim.min.js',
+	'./src/js/popper.min.js',
+	'./src/js/bootstrap.min.js',
+	'./src/js/scripts.js',
 ];
 
 function styles() {
@@ -46,7 +43,8 @@ function watch() {
 	browserSync.init({
         server: {
             baseDir: './'
-        }
+        },
+        // tunnel: true
     });
 
 	gulp.watch('./src/scss/**/*.scss', styles);
