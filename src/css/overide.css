@@ -1,0 +1,25 @@
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: red;
+	line-height: 1.5;
+}
+
+strong {
+	color: #005566;
+}
+a {
+	color: #005566;
+}
+.test {
+	color:  blue;
+}
+
+.d-flex {
+	display: flex;
+}
+
+@media(max-width: 480px) {
+	body {
+		background: #002233;
+	}
+}
