@@ -16,11 +16,6 @@ const jsFiles = [
 	'./src/js/scripts.js',
 ];
 
-const files = [
-	'./src/img/*',
-	'./src/webfonts/*',
-];
-
 function styles() {
 	return gulp.src('./src/scss/*.scss')
 			   .pipe(sass().on('error', sass.logError))
