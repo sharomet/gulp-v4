@@ -2,3 +2,19 @@ $font-size: 16px;
 @function pxToRem($px) {
     @return ($px / $font-size) * 1rem;
 }
+
+/**
+ * Color Contrast
+ */
+@function color-yiq($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+    @if ($yiq >= 165) {
+        @return #444;
+    }
+    @else {
+        @return #fff;
+    }
+}

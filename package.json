@@ -5,7 +5,9 @@
   "main": "index.js",
   "author": "Alexander Sharomet",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
@@ -16,5 +18,10 @@
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1"
-  }
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "IE 10"
+  ]
 }

@@ -2,9 +2,10 @@
 
 @import "variables";
 
-@import "fontawesome";
-@import "bootstrap";
-
 @import "include/functions";
 @import "include/global";
-@import "include/navbar";
+@import "include/mixins";
+@import "include/typography";
+@import "include/container";
+
+@import "include/buttons";

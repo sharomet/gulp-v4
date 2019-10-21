@@ -1,0 +1,17 @@
+.btn {
+  padding: $btn-padding-x $btn-padding-y;
+  border: 1px solid transparent;
+  background-color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  @include radius-mixin($border-radius);
+  text-align: center;
+}
+
+@each $color, $value in $theme-colors {
+  @include btn-view('.btn-#{$color}', $value);
+}
+
+@each $color, $value in $theme-colors {
+  @include btn-outline-view('.btn-outline-#{$color}', $value);
+}

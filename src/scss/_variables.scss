@@ -1,25 +1,24 @@
 /**
- * Body
+ * Global
  */
 $body-bg:                   	#f7f7f7;
 $body-color:                	#656565;
-$font-family-base:				'Open Sans', sans-serif;
-$font-size-base:				0.95rem;
+$font-family-base:				    'Open Sans', sans-serif;
+$font-size-base:				      0.97rem;
+$border-radius:								.15rem;
 
 /**
- * Primary colors
+ * Primary Colors
  */
-$primary:						#409EBD;
+$primary:                     #5184a1;
+$secondary:                   #659e84;
+$theme-colors: (
+	primary: 		  							$primary,
+	secondary: 									$secondary,
+);
 
 /**
- * Border
+ * Buttons
  */
-$border-color:					#eeeeee;
-
-/**
- * Navbar
- */
-$navbar-bg:						#ffffff;
-$navbar-color:					#555555;
-
-// font-family: 'Roboto Condensed', sans-serif;
+$btn-padding-x:								.37rem;
+$btn-padding-y:								.75rem;

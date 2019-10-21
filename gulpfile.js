@@ -1,18 +1,15 @@
-const del 			= require('del');
-const gulp 			= require('gulp');
-const sass 			= require('gulp-sass');
-const rigger 		= require('gulp-rigger');
-const concat 		= require('gulp-concat');
-const uglify 		= require('gulp-uglify');
-const cleanCSS 		= require('gulp-clean-css');
+const del 					= require('del');
+const gulp 					= require('gulp');
+const sass 					= require('gulp-sass');
+const rigger 				= require('gulp-rigger');
+const concat 				= require('gulp-concat');
+const uglify 				= require('gulp-uglify');
+const cleanCSS 			= require('gulp-clean-css');
 const autoprefixer 	= require('gulp-autoprefixer');
 const browserSync 	= require('browser-sync').create();
 
 const jsFiles = [
-	'./src/js/jquery-3.3.1.slim.min.js',
-	'./src/js/popper.min.js',
-	'./src/js/bootstrap.min.js',
-	'./src/js/jquery-mobile-mega-menu-min.js',
+	'./src/js/jquery-3.4.1.min.js',
 	'./src/js/scripts.js',
 ];
 
@@ -21,7 +18,6 @@ function styles() {
 			   .pipe(sass().on('error', sass.logError))
 			   .pipe(concat('styles.css'))
 			   .pipe(autoprefixer({
-					browsers: ['> 0.1%'],
 					cascade: false
 			   }))
 			   .pipe(cleanCSS({

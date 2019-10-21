@@ -1,0 +1,26 @@
+@mixin btn-view($parent, $color) {
+  #{$parent} {
+    background-color: $color;
+    border-color: $color;
+    color: color-yiq($color);
+    &:hover {
+        $darken: darken($color, 8%);
+        background-color: $darken;
+        border-color: $darken;
+        color: color-yiq($darken);
+    }
+  }
+}
+
+@mixin btn-outline-view($parent, $color) {
+  #{$parent} {
+    background-color: transparent;
+    border-color: $color;
+    color: $color;
+    &:hover {
+        background-color: $color;
+        border-color: $color;
+        color: color-yiq($color);
+    }
+  }
+}
