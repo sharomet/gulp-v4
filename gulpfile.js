@@ -5,6 +5,7 @@ const rigger 				= require('gulp-rigger');
 const concat 				= require('gulp-concat');
 const uglify 				= require('gulp-uglify');
 const cleanCSS 			= require('gulp-clean-css');
+const gcmq 					= require('gulp-group-css-media-queries');
 const autoprefixer 	= require('gulp-autoprefixer');
 const browserSync 	= require('browser-sync').create();
 
@@ -16,13 +17,14 @@ const jsFiles = [
 function styles() {
 	return gulp.src('./src/scss/*.scss')
 			   .pipe(sass().on('error', sass.logError))
-			   .pipe(concat('styles.css'))
+				 .pipe(concat('styles.css'))
+				 .pipe(gcmq())
 			   .pipe(autoprefixer({
 					cascade: false
 			   }))
 			   .pipe(cleanCSS({
 			   		level: 2
-			   }))
+				 }))
 			   .pipe(gulp.dest('./build/css/'))
 			   .pipe(browserSync.stream());
 }
